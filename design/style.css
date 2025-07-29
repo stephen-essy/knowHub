@@ -1,0 +1,468 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+}
+body .blob {
+  position: absolute;
+  top: 45%;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  z-index: -1;
+  opacity: 0.8;
+  animation: slideInLeft 1.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+body #blob-down {
+  top: 35%;
+  opacity: 0.3;
+  animation: none;
+}
+body .tech-circles {
+  position: absolute;
+  bottom: 40px;
+  right: 65px;
+  width: 250px;
+  height: 250px;
+  z-index: -1;
+  animation-delay: 0.3s;
+}
+
+#hero-wrapper-parent-index header {
+  height: 10vh;
+  width: 100%;
+}
+#hero-wrapper-parent-index header nav {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+#hero-wrapper-parent-index header nav section {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "syne";
+}
+#hero-wrapper-parent-index header nav section ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50%;
+}
+#hero-wrapper-parent-index header nav section ul li {
+  list-style: none;
+}
+#hero-wrapper-parent-index header nav section ul li button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#hero-wrapper-parent-index header nav section ul li button i {
+  transform: rotate(20deg);
+}
+#hero-wrapper-parent-index main {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#hero-wrapper-parent-index main section {
+  height: 50%;
+  width: 100%;
+}
+#hero-wrapper-parent-index main #index-main-section-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+#hero-wrapper-parent-index main #index-main-section-top h1 {
+  font-size: 60pt;
+  opacity: 0;
+  transform: translateY(20px);
+  font-family: "poppins", Tahoma, Geneva, Verdana, sans-serif;
+  animation: paragraphEntrance 1s ease-out forwards;
+  animation-delay: 1.8s;
+}
+#hero-wrapper-parent-index main #index-main-section-top article {
+  font-family: "poppins";
+  animation: paragraphEntrance 1s ease-out forwards;
+  animation-delay: 2.5s;
+  opacity: 0;
+}
+#hero-wrapper-parent-index main #index-main-section-below {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 75%;
+  bottom: 10%;
+  opacity: 0;
+  transform: translateX(140%);
+  transition: opacity 0.5s, transform 0.5s;
+  z-index: 1;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form div,
+#hero-wrapper-parent-index main #index-main-section-below .action-form form nav {
+  display: flex;
+  background: transparent;
+  margin: 10px;
+  height: 35px;
+  width: 250px;
+  border-radius: 5px;
+  outline: solid #4f46e5;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form div input {
+  outline: none;
+  border: none;
+  background: transparent;
+  color: black;
+  font-family: "poppins";
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form div input::-moz-placeholder {
+  color: rgb(215, 215, 215);
+  font-family: "poppins";
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form div input::placeholder {
+  color: rgb(215, 215, 215);
+  font-family: "poppins";
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form div label {
+  color: #4f46e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form .form-id-dominion label {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form .form-id-dominion input {
+  width: 85%;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form .form-passcode-dominion label {
+  width: 15%;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form .form-passcode-dominion input {
+  width: 75%;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form .form-passcode-dominion i {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4f46e5;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  outline: none;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form form nav button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form.show {
+  opacity: 1;
+  transform: translateX(0%);
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form.move-right {
+  opacity: 0;
+  transform: translateX(50%);
+}
+#hero-wrapper-parent-index main #index-main-section-below .alert-popup {
+  position: fixed;
+  right: 90%;
+  bottom: 10%;
+  opacity: 0;
+  transform: translateX(10%);
+  transition: opacity 0.5s, transform 0.5s;
+  z-index: 1;
+  height: 55px;
+  width: 280px;
+  background-color: #4CAF50;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-family: "poppins";
+  border-radius: 5px;
+}
+#hero-wrapper-parent-index main #index-main-section-below .alert-popup.show {
+  opacity: 1;
+  transform: translateX(50%);
+}
+#hero-wrapper-parent-index main #index-main-section-below .alert-popup.move-right {
+  transform: translateX(50%);
+  opacity: 0;
+}
+#hero-wrapper-parent-index main #index-main-section-below .alert-success {
+  background-color: #4CAF50;
+}
+#hero-wrapper-parent-index main #index-main-section-below .alert-error {
+  background-color: #f44336;
+}
+
+#hero-wrapper-parent-app .blob {
+  position: absolute;
+  top: 45%;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  z-index: -1;
+  opacity: 0.8;
+  animation: slideInLeft 1.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+#hero-wrapper-parent-app #blob-down {
+  top: 35%;
+  opacity: 0.3;
+  animation: none;
+}
+#hero-wrapper-parent-app .tech-circles {
+  position: absolute;
+  bottom: 40px;
+  right: 65px;
+  width: 250px;
+  height: 250px;
+  z-index: -1;
+  animation-delay: 0.3s;
+}
+#hero-wrapper-parent-app header {
+  height: 10vh;
+  width: 100%;
+  font-family: "poppins";
+}
+#hero-wrapper-parent-app header nav {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#hero-wrapper-parent-app header nav aside {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hero-wrapper-parent-app header nav aside ul {
+  list-style: none;
+  display: flex;
+  gap: 10pt;
+  margin-left: 40pt;
+}
+#hero-wrapper-parent-app header nav aside ul li {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 10pt;
+}
+#hero-wrapper-parent-app header nav aside ul li i {
+  cursor: pointer;
+  position: fixed;
+}
+#hero-wrapper-parent-app header nav aside ul li span {
+  height: 20px;
+  width: 20px;
+  background: #4f46e5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -10px;
+  left: 5px;
+  color: white;
+  font-size: x-small;
+}
+#hero-wrapper-parent-app main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "poppins";
+}
+#hero-wrapper-parent-app main .wrapper-aside-file {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #6366f1;
+  border-radius: 2.5px;
+  position: fixed;
+  top: 85%;
+  right: 10%;
+}
+#hero-wrapper-parent-app main .wrapper-aside-file .file-picker {
+  display: none;
+}
+#hero-wrapper-parent-app main .wrapper-aside-file label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+}
+#hero-wrapper-parent-app main .wrapper-aside-file label span {
+  padding-left: 5px;
+}
+#hero-wrapper-parent-app main .wrapper-aside-file aside {
+  padding: 10px 20px;
+  display: flex;
+  gap: 10px;
+}
+#hero-wrapper-parent-app main .wrapper-aside-file aside li {
+  list-style: none;
+}
+#hero-wrapper-parent-app main .wrapper-aside-file aside li i {
+  cursor: pointer;
+  color: white;
+}
+
+#hero-login-finite i {
+  transition: transform 0.4s ease, margin-left 0.4s ease;
+}
+
+.animate-arrow {
+  transform: rotate(90deg);
+  margin-left: 20px;
+}
+
+.animate-arrow-return {
+  transform: rotate(0deg);
+  margin-left: 0px;
+}
+
+.spinner {
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+.alert-popup {
+  position: fixed;
+  right: 90%;
+  bottom: 10%;
+  opacity: 0;
+  transform: translateX(10%);
+  transition: opacity 0.5s, transform 0.5s;
+  z-index: 1;
+  height: 55px;
+  width: 280px;
+  background-color: #4CAF50;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-family: "poppins";
+  border-radius: 5px;
+}
+
+.alert-popup.show {
+  opacity: 1;
+  transform: translateX(50%);
+}
+
+.alert-popup.move-right {
+  transform: translateX(50%);
+  opacity: 0;
+}
+
+.alert-success {
+  background-color: #4CAF50;
+}
+
+.alert-error {
+  background-color: #f44336;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 0.8;
+  }
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes paragraphEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}/*# sourceMappingURL=style.css.map */
