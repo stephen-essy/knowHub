@@ -71,18 +71,24 @@ body .tech-circles {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 20px;
+  gap: 12px;
+  padding: 10px 25px;
   background: #4f46e5;
   color: white;
   border: none;
-  border-radius: 6px;
-  font-weight: bold;
+  border-radius: 20px;
+  font-weight: normal;
   cursor: pointer;
   transition: background 0.3s ease;
+  font-family: "poppins";
 }
 #hero-wrapper-parent-index header nav section ul li button i {
-  transform: rotate(20deg);
+  transform: rotate(25deg);
+}
+#hero-wrapper-parent-index header nav section ul li #hero-register-button {
+  background: none;
+  outline: none;
+  color: #4f46e5;
 }
 #hero-wrapper-parent-index main {
   height: 90vh;
@@ -124,7 +130,6 @@ body .tech-circles {
   flex-direction: column;
   position: fixed;
   left: 75%;
-  bottom: 10%;
   opacity: 0;
   transform: translateX(140%);
   transition: opacity 0.5s, transform 0.5s;
@@ -153,15 +158,13 @@ body .tech-circles {
   font-family: "poppins";
 }
 #hero-wrapper-parent-index main #index-main-section-below .action-form form div input::-moz-placeholder {
-  color: rgb(215, 215, 215);
   font-family: "poppins";
 }
 #hero-wrapper-parent-index main #index-main-section-below .action-form form div input::placeholder {
-  color: rgb(215, 215, 215);
   font-family: "poppins";
 }
 #hero-wrapper-parent-index main #index-main-section-below .action-form form div label {
-  color: #4f46e5;
+  color: rgba(0, 0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,6 +174,7 @@ body .tech-circles {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #070707;
 }
 #hero-wrapper-parent-index main #index-main-section-below .action-form form .form-id-dominion input {
   width: 85%;
@@ -186,7 +190,7 @@ body .tech-circles {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #4f46e5;
+  color: #070707;
 }
 #hero-wrapper-parent-index main #index-main-section-below .action-form form nav {
   display: flex;
@@ -205,7 +209,8 @@ body .tech-circles {
   color: white;
   border: none;
   border-radius: 6px;
-  font-weight: bold;
+  font-weight: normal;
+  font-family: "poppins";
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -214,6 +219,78 @@ body .tech-circles {
   transform: translateX(0%);
 }
 #hero-wrapper-parent-index main #index-main-section-below .action-form.move-right {
+  opacity: 0;
+  transform: translateX(50%);
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form-register {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 75%;
+  opacity: 0%;
+  transform: translateX(140%);
+  transition: opacity 0.5s, transform 0.5s;
+  z-index: 1;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form-register form div,
+#hero-wrapper-parent-index main #index-main-section-below .action-form-register form nav {
+  display: flex;
+  background: transparent;
+  margin: 10px;
+  height: 35px;
+  width: 250px;
+  border-radius: 5px;
+  outline: solid #4f46e5;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form-register form div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form-register form div input {
+  outline: none;
+  border: none;
+  background: transparent;
+  color: black;
+  font-family: "poppins";
+  width: 85%;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form-register form div label {
+  width: 15%;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form-register form div input, #hero-wrapper-parent-index main #index-main-section-below .action-form-register form div label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form-register form nav {
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form-register form nav button {
+  display: flex;
+  align-items: center;
+  outline: none;
+  border: none;
+  font-family: "poppins";
+  gap: 12px;
+  padding: 10px 25px;
+  background: #4f46e5;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form-register form nav button i {
+  transform: rotate(25deg);
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form-register.show {
+  opacity: 1;
+  transform: translatex(0%);
+}
+#hero-wrapper-parent-index main #index-main-section-below .action-form-register.move-right {
   opacity: 0;
   transform: translateX(50%);
 }
