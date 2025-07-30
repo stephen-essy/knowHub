@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const responseReceived = await response.json();
       if (response.ok) {
         localStorage.setItem("token", JSON.stringify(responseReceived.data));
+        alert(responseReceived.message,'success');
         icon.classList.remove("spinner");
         setTimeout(() => {
           window.location.href = "app.html";
@@ -56,9 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     let email = document.getElementById("user-email").value.trim();
     let password = document.getElementById("password").value.trim();
+    let name=document.getElementById("name").value.trim();
     let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    if (!email || !password) {
+    if (!email || !password || !name) {
       alert("please enter all fields", "error");
       return;
     }
@@ -68,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const user = {
+      name:name,
       email: email,
       password: password,
     };
@@ -82,23 +85,37 @@ document.addEventListener("DOMContentLoaded", () => {
         icon.classList.add("spinner");
       }, 350);
 
-      let request = await fetch("http://localhost:8080/api/user/register", {
+      const request = await fetch("http://localhost:8080/api/user/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
       });
+      if(request.ok){
+        const response= await request.json();
+        setTimeout(()=>{
+          icon.classList.remove("spinner");
+          icon.style.margin="0";
+          icon.style.transition="transform 0.5s ease"
+          icon.style.transform="rotate(0deg)"
+          icon.classList.add( "fa-check")
+        regNote.innerHTML="Registered";
+        },2500) 
+        document.getElementById("register-form").reset();
+      }else{
+        const response=await request.json();
+        regNote.innerHTML="register"
+        setTimeout(()=>{
+          icon.classList.remove("spinner");
+          icon.classList.add("animate-arrow-return")
+          icon.classList.add("fa-arrow-up");
+        },3500)
 
-      const response = await request.json();
-      if (response.ok) {
-        console.log(response.data);
-        icon.classList.remove("spinner");
-        alert(`Success :${response.message}`, "success");
-        return;
-      } else {
-        alert(`Failed :${response.message}`, "error");
+        alert(response.message,"error")
+        document.getElementById("register-form").reset();
+
       }
     } catch (error) {
-      alert("Message from Error :", "error");
+      alert("Error in processing", "error");
     }
   }
 
