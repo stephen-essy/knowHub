@@ -1,4 +1,24 @@
 import { alert } from "./ui.js";
+const AuthStorage = {
+  save: (data) => {
+    const authData = {
+      id: data.userId,
+      name: data.userName,
+      token: data.token,
+    };
+    localStorage.setItem("userAuthData", JSON.stringify(authData));
+  },
+
+  get: () => {
+    const raw = localStorage.getItem("userAuthData");
+    return raw ? JSON.parse(raw) : null;
+  },
+
+  clear: () => {
+    localStorage.removeItem("userAuthData");
+  },
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   async function login(event) {
     event.preventDefault();
@@ -31,8 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const responseReceived = await response.json();
       if (response.ok) {
-        localStorage.setItem("token", JSON.stringify(responseReceived.data));
-        alert(responseReceived.message,'success');
+        AuthStorage.save(responseReceived);
+        console.log('new oject :>> ', AuthStorage.get());
+        alert(responseReceived.message, "success");
         icon.classList.remove("spinner");
         setTimeout(() => {
           window.location.href = "app.html";
@@ -57,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     let email = document.getElementById("user-email").value.trim();
     let password = document.getElementById("password").value.trim();
-    let name=document.getElementById("name").value.trim();
+    let name = document.getElementById("name").value.trim();
     let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!email || !password || !name) {
@@ -70,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const user = {
-      name:name,
+      name: name,
       email: email,
       password: password,
     };
@@ -90,29 +111,28 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
       });
-      if(request.ok){
-        const response= await request.json();
-        setTimeout(()=>{
+      if (request.ok) {
+        const response = await request.json();
+        setTimeout(() => {
           icon.classList.remove("spinner");
-          icon.style.margin="0";
-          icon.style.transition="transform 0.5s ease"
-          icon.style.transform="rotate(0deg)"
-          icon.classList.add( "fa-check")
-        regNote.innerHTML="Registered";
-        },2500) 
+          icon.style.margin = "0";
+          icon.style.transition = "transform 0.5s ease";
+          icon.style.transform = "rotate(0deg)";
+          icon.classList.add("fa-check");
+          regNote.innerHTML = "Registered";
+        }, 2500);
         document.getElementById("register-form").reset();
-      }else{
-        const response=await request.json();
-        regNote.innerHTML="register"
-        setTimeout(()=>{
+      } else {
+        const response = await request.json();
+        regNote.innerHTML = "register";
+        setTimeout(() => {
           icon.classList.remove("spinner");
-          icon.classList.add("animate-arrow-return")
+          icon.classList.add("animate-arrow-return");
           icon.classList.add("fa-arrow-up");
-        },3500)
+        }, 3500);
 
-        alert(response.message,"error")
+        alert(response.message, "error");
         document.getElementById("register-form").reset();
-
       }
     } catch (error) {
       alert("Error in processing", "error");
