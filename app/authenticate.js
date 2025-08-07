@@ -1,5 +1,5 @@
 import { alert } from "./ui.js";
-const AuthStorage = {
+export const AuthStorage = {
   save: (data) => {
     const authData = {
       id: data.userId,
@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         icon.classList.remove("spinner");
         setTimeout(() => {
           window.location.href = "app.html";
+          document.getElementById("login-form").reset();
         }, 1000);
         return;
       } else {
@@ -68,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 350);
       }
     } catch (error) {
+      console.log(error)
       document.getElementById("login-form").reset();
       icon.classList.remove("spinner");
       alert("Error in processing", "error");
@@ -135,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("register-form").reset();
       }
     } catch (error) {
+      console.log(error)
       alert("Error in processing", "error");
     }
   }
