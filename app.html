@@ -35,17 +35,19 @@
                         <span>0</span>
                     </li>
                     <li>
-                        <i class="fa-solid fa-book"></i>
-                    </li>
-                    <li>
                         <i class="fa-solid fa-clock"></i>
+                    </li>
+                    <li class="account">
+                        <div id="account-letter">
+                            <p id="badge-letter">U</p>
+                        </div>
+                        <article id="account-name"></article>
                     </li>
                 </ul>
             </aside>
         </nav>
     </header>
     <main>
-        <pre id="output"></pre>
         <section>
             <svg class="blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <path fill="#6366f1"
@@ -58,7 +60,47 @@
                     transform="translate(100 100)" />
             </svg>
         </section>
-        <section></section>
+        <section>
+            <form action="" class="event-registration" id="event-registration">
+                <div class="div-inputs animated">
+                    <div class="animated-field">
+                        <input type="text" name="event-name" id="event-name" autocomplete="off">
+                        <span class="animated-placeholder" id="animated-placeholder">event</span>
+                    </div>
+                </div>
+                <div class="div-inputs date-wrapper">
+                    <section>
+                        <label for="start-time"><i class="fa-solid fa-hourglass-start"></i></label>
+                        <input type="time" name="start-time" id="start-time" placeholder="start-time">
+                    </section>
+                    <section>
+                        <label for="end-time"><i class="fa-solid fa-hourglass-end"></i></label>
+                        <input type="time" name="end-time" id="end-time" placeholder="end-time">
+                    </section>
+                </div>
+                <div class="div-inputs">
+                    <label for="date"><i class="fa-solid fa-calendar"></i></label>
+                    <input type="date" name="date" id="date" placeholder="date">
+                </div>
+                <div class="div-inputs">
+                    <label for="location"><i class="fa-solid fa-location-dot"></i></label>
+                    <input type="text" name="location" id="location" placeholder="location">
+                </div>
+                <div class="div-inputs desc">
+                    <textarea name="activityDescription" id="event-desc" placeholder="Event Description"></textarea>
+                </div>
+                <nav>
+                    <button type="button" class="button" id="add-event">
+                        <span>submit</span>
+                        <i class="fa-solid fa-paper-plane" id="paper-plane"></i>
+                    </button>
+                    <button type="button" class="button close-event">
+                        <span>cancel</span>
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+                </nav>
+            </form>
+        </section>
         <aside class="wrapper-aside-file">
             <label for="file-picker">
                 <i class="fa-solid fa-file"></i>
@@ -74,11 +116,16 @@
                 </li>
             </aside>
         </aside>
+
+
+        <h1 id="title"></h1>
         <div class="alert-popup" id="alertPopup">Hello</div>
     </main>
     <footer></footer>
     <script type="module" src="app/ui.js"></script>
+    <script type="module" src="app/authenticate.js"></script>
     <script type="module" src="app/main.js"></script>
+    <script type="module" src="app/events.js"></script>
 </body>
 
 </html>
